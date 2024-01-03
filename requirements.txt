@@ -6,7 +6,7 @@ flask
 gitpython
 matplotlib
 numpy
-opencv-python
+opencv-python-headless
 Pillow
 psutil  
 PyYAML
