@@ -1,5 +1,5 @@
 
-FROM python:3.7
+FROM public.ecr.aws/docker/library/python:3.8
 
 COPY ./requirements.txt  /app/requirements.txt
 
