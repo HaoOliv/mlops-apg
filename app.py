@@ -8,7 +8,7 @@ from io import BytesIO
 from flask import Flask, request
 
 # Load the YOLO model
-model = YOLO('./yolov8n_test.pt')
+model = YOLO('./yolov8n.pt')
 
 # Initialise a Flask object
 app = Flask(__name__)
