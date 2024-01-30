@@ -39,6 +39,7 @@ def predict_image():
 
     df = pd.DataFrame(results, columns=['x1', 'y1', 'x2', 'y2', 'Confidence', 'Class ID'])
 
+    # return prediction results
     return df.to_json(orient='records')
 
 if __name__ == '__main__':
