@@ -5,7 +5,7 @@ from PIL import Image
 import cv2
 import requests
 from io import BytesIO
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import pandas as pd
 import math
 
@@ -14,6 +14,11 @@ model = YOLO('./yolov8n.pt')
 
 # Initialise a Flask object
 app = Flask(__name__)
+def health_check():
+    # You can perform any health checks here
+    # For example, checking the database connection, external service availability, etc.
+    # For this example, let's assume everything is fine and return a simple JSON response
+    return jsonify({'status': 'ok'})
 
 @app.route('/predict')
 def predict_image():
@@ -39,8 +44,12 @@ def predict_image():
 
     df = pd.DataFrame(results, columns=['x1', 'y1', 'x2', 'y2', 'Confidence', 'Class ID'])
 
-    # return prediction results
+    # return prediction result
     return df.to_json(orient='records')
+
+@app.route('/health')
+def health_check():
+    return jsonify({'status': 'ok'})
 
 if __name__ == '__main__':
      app.run(host='0.0.0.0', port=5000)
