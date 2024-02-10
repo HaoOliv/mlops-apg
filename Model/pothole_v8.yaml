@@ -1,0 +1,6 @@
+train: pothole_dataset_v8/train/images
+val: pothole_dataset_v8/valid/images
+
+# class names
+names: 
+  0: 'pothole'
